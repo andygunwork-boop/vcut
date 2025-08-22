@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Pro - Профессиональный Видеомонтаж</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Темный фон */
+            color: #e2e8f0; /* Светлый текст */
+            scroll-behavior: smooth;
+        }
+        .text-gradient {
+            background-image: linear-gradient(45deg, #a78bfa, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background-image: url('https://placehold.co/1920x1080/2d3748/e2e8f0?text=ФОН');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Навигация -->
+    <nav class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-sm shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Логотип -->
+                <a href="#" class="flex items-center space-x-2">
+                    <span class="text-3xl font-extrabold text-gradient">Video Pro</span>
+                </a>
+                <!-- Навигационные ссылки -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-gray-300 hover:text-purple-400 transition-colors duration-300">Услуги</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-purple-400 transition-colors duration-300">Портфолио</a>
+                    <a href="#testimonials" class="text-gray-300 hover:text-purple-400 transition-colors duration-300">Отзывы</a>
+                    <a href="#contact" class="text-gray-300 hover:text-purple-400 transition-colors duration-300">Контакты</a>
+                </div>
+                <!-- Мобильное меню -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Мобильное меню (скрыто по умолчанию) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800/90 backdrop-blur-sm">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#services" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700">Услуги</a>
+                <a href="#portfolio" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700">Портфолио</a>
+                <a href="#testimonials" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700">Отзывы</a>
+                <a href="#contact" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главная секция (Hero) -->
+    <section class="relative w-full py-20 px-4 text-center hero-bg">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="relative z-10 max-w-4xl mx-auto py-20">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-white mb-4">
+                Ваши истории <span class="text-gradient">в кадре</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-300 mb-8">
+                Мы превращаем ваши идеи в захватывающие видеоролики, которые оставляют неизгладимое впечатление.
+            </p>
+            <a href="#contact" class="inline-block bg-purple-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-purple-700 transition-transform duration-300 transform hover:scale-105">
+                Обсудить проект
+            </a>
+        </div>
+    </section>
+
+    <!-- Раздел "Наши услуги" -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gradient">Наши услуги</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Карточка услуги 1 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-purple-400 text-4xl mb-4 text-center">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Корпоративные видео</h3>
+                    <p class="text-gray-400 text-center">
+                        Создание профессиональных видео для бизнеса, презентаций и внутренних коммуникаций.
+                    </p>
+                </div>
+                <!-- Карточка услуги 2 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-purple-400 text-4xl mb-4 text-center">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Контент для соцсетей</h3>
+                    <p class="text-gray-400 text-center">
+                        Короткие, динамичные видеоролики, адаптированные для Instagram, TikTok и YouTube Shorts.
+                    </p>
+                </div>
+                <!-- Карточка услуги 3 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-purple-400 text-4xl mb-4 text-center">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Свадебные и событийные видео</h3>
+                    <p class="text-gray-400 text-center">
+                        Запечатлеем самые важные моменты вашей жизни в красивом и трогательном фильме.
+                    </p>
+                </div>
+                <!-- Карточка услуги 4 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-purple-400 text-4xl mb-4 text-center">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Образовательный контент</h3>
+                    <p class="text-gray-400 text-center">
+                        Монтаж онлайн-курсов, вебинаров и обучающих материалов.
+                    </p>
+                </div>
+                <!-- Карточка услуги 5 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-purple-400 text-4xl mb-4 text-center">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Музыкальные клипы</h3>
+                    <p class="text-gray-400 text-center">
+                        Создание стильных и динамичных видеоклипов, которые подчеркнут вашу музыку.
+                    </p>
+                </div>
+                <!-- Карточка услуги 6 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-purple-400 text-4xl mb-4 text-center">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-2 text-center">Монтаж игровых видео</h3>
+                    <p class="text-gray-400 text-center">
+                        Нарезка лучших моментов, добавление эффектов и музыки для вашего игрового канала.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел "Портфолио" -->
+    <section id="portfolio" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gradient">Наше Портфолио</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Элемент портфолио 1 -->
+                <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=Проект+1" alt="Проект 1" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold text-white text-center">Промо-ролик для стартапа</h3>
+                    </div>
+                </div>
+                <!-- Элемент портфолио 2 -->
+                <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=Проект+2" alt="Проект 2" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold text-white text-center">Свадебное видео</h3>
+                    </div>
+                </div>
+                <!-- Элемент портфолио 3 -->
+                <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=Проект+3" alt="Проект 3" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold text-white text-center">Обзор продукта</h3>
+                    </div>
+                </div>
+                <!-- Элемент портфолио 4 -->
+                <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=Проект+4" alt="Проект 4" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold text-white text-center">Музыкальный клип</h3>
+                    </div>
+                </div>
+                <!-- Элемент портфолио 5 -->
+                <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=Проект+5" alt="Проект 5" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold text-white text-center">Игровое видео</h3>
+                    </div>
+                </div>
+                <!-- Элемент портфолио 6 -->
+                <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=Проект+6" alt="Проект 6" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold text-white text-center">Рекламный ролик</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел "Отзывы" -->
+    <section id="testimonials" class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gradient">Что говорят наши клиенты</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Отзыв 1 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6">
+                    <p class="text-lg text-gray-300 mb-4 italic">
+                        "Команда Video Pro превзошла все мои ожидания. Видеоролик получился именно таким, каким я его представлял. Очень рекомендую!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://placehold.co/60x60/a78bfa/e2e8f0?text=Имя" alt="Клиент 1" class="w-12 h-12 rounded-full mr-4 border-2 border-purple-400">
+                        <div>
+                            <p class="font-semibold">Иван Петров</p>
+                            <p class="text-sm text-gray-500">Маркетолог</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Отзыв 2 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6">
+                    <p class="text-lg text-gray-300 mb-4 italic">
+                        "Работа выполнена быстро и качественно. Коммуникация была на высшем уровне. Обязательно обращусь снова!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://placehold.co/60x60/818cf8/e2e8f0?text=Имя" alt="Клиент 2" class="w-12 h-12 rounded-full mr-4 border-2 border-indigo-400">
+                        <div>
+                            <p class="font-semibold">Мария Иванова</p>
+                            <p class="text-sm text-gray-500">Блогер</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Отзыв 3 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6">
+                    <p class="text-lg text-gray-300 mb-4 italic">
+                        "Профессиональный подход и внимание к деталям. Результат просто восхитительный! Спасибо за прекрасное видео!"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://placehold.co/60x60/a78bfa/e2e8f0?text=Имя" alt="Клиент 3" class="w-12 h-12 rounded-full mr-4 border-2 border-purple-400">
+                        <div>
+                            <p class="font-semibold">Сергей Смирнов</p>
+                            <p class="text-sm text-gray-500">Ивент-менеджер</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел "Контакты" -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-gradient">Готовы начать?</h2>
+            <p class="text-lg text-gray-400 mb-8">
+                Напишите нам, и мы обсудим ваш проект, чтобы создать что-то по-настоящему особенное.
+            </p>
+            <form action="#" class="max-w-xl mx-auto space-y-4">
+                <input type="text" placeholder="Ваше имя" class="w-full bg-gray-800 text-gray-200 border-2 border-gray-700 rounded-lg p-3 focus:outline-none focus:border-purple-500 transition-colors duration-200">
+                <input type="email" placeholder="Ваш Email" class="w-full bg-gray-800 text-gray-200 border-2 border-gray-700 rounded-lg p-3 focus:outline-none focus:border-purple-500 transition-colors duration-200">
+                <textarea rows="4" placeholder="Сообщение" class="w-full bg-gray-800 text-gray-200 border-2 border-gray-700 rounded-lg p-3 focus:outline-none focus:border-purple-500 transition-colors duration-200"></textarea>
+                <button type="submit" class="w-full bg-purple-600 text-white font-bold py-3 rounded-lg shadow-lg hover:bg-purple-700 transition-colors duration-300">
+                    Отправить сообщение
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-gray-800 py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left text-gray-400">
+            <p>&copy; 2024 Video Pro. Все права защищены.</p>
+            <div class="mt-4 md:mt-0 space-x-4">
+                <a href="#" class="hover:text-purple-400 transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-purple-400 transition-colors duration-300"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="hover:text-purple-400 transition-colors duration-300"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript для мобильного меню
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
