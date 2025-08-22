@@ -263,7 +263,7 @@
             </p>
             <form id="telegram-form" class="max-w-xl mx-auto space-y-4">
                 <input type="text" name="name" placeholder="Ваше имя" class="w-full bg-gray-800 text-gray-200 border-2 border-gray-700 rounded-lg p-3 focus:outline-none focus:border-purple-500 transition-colors duration-200" required>
-                <input type="email" name="email" placeholder="Ваш Email" class="w-full bg-gray-800 text-gray-200 border-2 border-gray-700 rounded-lg p-3 focus:outline-none focus:border-purple-500 transition-colors duration-200" required>
+                <input type="tel" name="phone" placeholder="Ваш телефон" class="w-full bg-gray-800 text-gray-200 border-2 border-gray-700 rounded-lg p-3 focus:outline-none focus:border-purple-500 transition-colors duration-200" required>
                 <textarea rows="4" name="message" placeholder="Сообщение" class="w-full bg-gray-800 text-gray-200 border-2 border-gray-700 rounded-lg p-3 focus:outline-none focus:border-purple-500 transition-colors duration-200" required></textarea>
                 <button type="submit" class="w-full bg-purple-600 text-white font-bold py-3 rounded-lg shadow-lg hover:bg-purple-700 transition-colors duration-300">
                     Отправить сообщение
@@ -304,7 +304,7 @@
             const formData = new FormData(form);
             const payload = {
                 name: formData.get('name'),
-                email: formData.get('email'),
+                phone: formData.get('phone'), // Обновлено: теперь отправляем телефон
                 message: formData.get('message')
             };
 
