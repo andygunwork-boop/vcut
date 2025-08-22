@@ -26,6 +26,12 @@
             background-repeat: no-repeat;
             position: relative;
         }
+        #form-status {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -130,7 +136,7 @@
                     <div class="text-purple-400 text-4xl mb-4 text-center">
                         <i class="fas fa-music"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-2 text-center">Музыкальные клипы</h3>
+                    <h3 class="2xl font-semibold mb-2 text-center">Музыкальные клипы</h3>
                     <p class="text-gray-400 text-center">
                         Создание стильных и динамичных видеоклипов, которые подчеркнут вашу музыку.
                     </p>
@@ -255,20 +261,14 @@
             <p class="text-lg text-gray-400 mb-8">
                 Напишите нам, и мы обсудим ваш проект, чтобы создать что-то по-настоящему особенное.
             </p>
-            <!-- Обновленная форма с атрибутом data-netlify -->
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you" class="max-w-xl mx-auto space-y-4">
-                <!-- Скрытое поле, чтобы помочь Netlify определить форму как Netlify Form -->
-                <input type="hidden" name="form-name" value="contact" />
-                <p class="hidden">
-                    <label>Не заполняйте это поле: <input name="bot-field" /></label>
-                </p>
-                
+            <form id="telegram-form" class="max-w-xl mx-auto space-y-4">
                 <input type="text" name="name" placeholder="Ваше имя" class="w-full bg-gray-800 text-gray-200 border-2 border-gray-700 rounded-lg p-3 focus:outline-none focus:border-purple-500 transition-colors duration-200" required>
                 <input type="email" name="email" placeholder="Ваш Email" class="w-full bg-gray-800 text-gray-200 border-2 border-gray-700 rounded-lg p-3 focus:outline-none focus:border-purple-500 transition-colors duration-200" required>
                 <textarea rows="4" name="message" placeholder="Сообщение" class="w-full bg-gray-800 text-gray-200 border-2 border-gray-700 rounded-lg p-3 focus:outline-none focus:border-purple-500 transition-colors duration-200" required></textarea>
                 <button type="submit" class="w-full bg-purple-600 text-white font-bold py-3 rounded-lg shadow-lg hover:bg-purple-700 transition-colors duration-300">
                     Отправить сообщение
                 </button>
+                <p id="form-status" class="text-green-500 hidden">Сообщение успешно отправлено!</p>
             </form>
         </div>
     </section>
@@ -276,7 +276,7 @@
     <!-- Футер -->
     <footer class="bg-gray-800 py-8 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left text-gray-400">
-            <p>&copy; 2025 Video Pro. Все права защищены.</p>
+            <p>&copy; 2024 Video Pro. Все права защищены.</p>
             <div class="mt-4 md:mt-0 space-x-4">
                 <a href="#" class="hover:text-purple-400 transition-colors duration-300"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="hover:text-purple-400 transition-colors duration-300"><i class="fab fa-youtube"></i></a>
@@ -292,6 +292,48 @@
 
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // JavaScript для отправки формы
+        const form = document.getElementById('telegram-form');
+        const formStatus = document.getElementById('form-status');
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Предотвращаем стандартное поведение формы
+            
+            const formData = new FormData(form);
+            const payload = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                message: formData.get('message')
+            };
+
+            // Отправляем данные формы на Netlify Function
+            try {
+                const response = await fetch('/.netlify/functions/send-to-telegram', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    formStatus.textContent = 'Сообщение успешно отправлено!';
+                    formStatus.classList.remove('text-red-500');
+                    formStatus.classList.add('text-green-500');
+                    formStatus.style.display = 'block';
+                    form.reset(); // Очищаем форму
+                } else {
+                    throw new Error('Произошла ошибка при отправке сообщения.');
+                }
+            } catch (error) {
+                console.error(error);
+                formStatus.textContent = 'Ошибка отправки сообщения. Пожалуйста, попробуйте снова.';
+                formStatus.classList.remove('text-green-500');
+                formStatus.classList.add('text-red-500');
+                formStatus.style.display = 'block';
+            }
         });
     </script>
 </body>
