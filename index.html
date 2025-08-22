@@ -159,48 +159,11 @@
     <section id="portfolio" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gradient">Наше Портфолио</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Элемент портфолио 1 (с видео) -->
-                <div id="portfolio-project-1" class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
-                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=ПОСЁЛОК" alt="Проект Посёлок" class="w-full h-auto object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 class="text-2xl font-bold text-white text-center">ПОСЁЛОК</h3>
-                    </div>
-                </div>
-                <!-- Элемент портфолио 2 -->
-                <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
-                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=Проект+2" alt="Проект 2" class="w-full h-auto object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 class="text-2xl font-bold text-white text-center">Свадебное видео</h3>
-                    </div>
-                </div>
-                <!-- Элемент портфолио 3 -->
-                <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
-                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=Проект+3" alt="Проект 3" class="w-full h-auto object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 class="text-2xl font-bold text-white text-center">Обзор продукта</h3>
-                    </div>
-                </div>
-                <!-- Элемент портфолио 4 -->
-                <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
-                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=Проект+4" alt="Проект 4" class="w-full h-auto object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 class="text-2xl font-bold text-white text-center">Музыкальный клип</h3>
-                    </div>
-                </div>
-                <!-- Элемент портфолио 5 -->
-                <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
-                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=Проект+5" alt="Проект 5" class="w-full h-auto object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 class="text-2xl font-bold text-white text-center">Игровое видео</h3>
-                    </div>
-                </div>
-                <!-- Элемент портфолио 6 -->
-                <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
-                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=Проект+6" alt="Проект 6" class="w-full h-auto object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <h3 class="2xl font-bold text-white text-center">Рекламный ролик</h3>
-                    </div>
+            <div class="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
+                <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-white text-center p-4 bg-gray-900">ПОСЁЛОК</h3>
+                <div class="relative pb-[56.25%] h-0">
+                    <!-- Встроенное видео с RuTube -->
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?quality=1&autoStart=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -236,20 +199,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Модальное окно для видео -->
-    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
-        <div class="relative w-full max-w-4xl p-4 md:p-8 bg-gray-900 rounded-xl shadow-2xl">
-            <!-- Кнопка закрытия -->
-            <button id="closeModalBtn" class="absolute top-4 right-4 text-white hover:text-gray-400 text-4xl leading-none transition-colors duration-300">&times;</button>
-            <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-white text-center">ПОСЁЛОК</h3>
-            <!-- Контейнер видеоплеера -->
-            <div class="relative pb-[56.25%] h-0">
-                <!-- Встроенное видео с RuTube -->
-                <iframe id="videoIframe" class="absolute top-0 left-0 w-full h-full" src="https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?quality=1&autoStart=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
 
     <script>
         // JavaScript для мобильного меню
@@ -299,33 +248,6 @@
                 formStatus.classList.remove('text-green-500');
                 formStatus.classList.add('text-red-500');
                 formStatus.style.display = 'block';
-            }
-        });
-
-        // JavaScript для модального окна
-        const videoModal = document.getElementById('videoModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const portfolioProject1 = document.getElementById('portfolio-project-1');
-        const videoIframe = document.getElementById('videoIframe');
-
-        // Открытие модального окна
-        portfolioProject1.addEventListener('click', () => {
-            videoModal.classList.remove('hidden');
-        });
-
-        // Закрытие модального окна
-        closeModalBtn.addEventListener('click', () => {
-            videoModal.classList.add('hidden');
-            // Остановка видео при закрытии
-            videoIframe.src = videoIframe.src;
-        });
-
-        // Закрытие модального окна при клике вне него
-        window.addEventListener('click', (event) => {
-            if (event.target === videoModal) {
-                videoModal.classList.add('hidden');
-                // Остановка видео при закрытии
-                videoIframe.src = videoIframe.src;
             }
         });
 
