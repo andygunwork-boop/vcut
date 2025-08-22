@@ -10,14 +10,14 @@ exports.handler = async (event) => {
     const data = JSON.parse(event.body);
     const {
         name,
-        email,
+        phone,
         message
     } = data;
 
     // Формирование сообщения для Telegram
     const telegramMessage = `*Новая заявка с сайта!*
 Имя: ${name}
-Email: ${email}
+Телефон: ${phone}
 Сообщение:
 ${message}`;
 
