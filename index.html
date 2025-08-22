@@ -160,9 +160,9 @@
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gradient">Наше Портфолио</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Элемент портфолио 1 -->
-                <div class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
-                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=Проект+1" alt="Проект 1" class="w-full h-auto object-cover">
+                <!-- Элемент портфолио 1 (с видео) -->
+                <div id="portfolio-project-1" class="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
+                    <img src="https://placehold.co/600x400/374151/e2e8f0?text=ПРОСМОТРЕТЬ+ВИДЕО" alt="Проект 1" class="w-full h-auto object-cover">
                     <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <h3 class="text-2xl font-bold text-white text-center">Промо-ролик для стартапа</h3>
                     </div>
@@ -206,54 +206,6 @@
         </div>
     </section>
 
-    <!-- Раздел "Отзывы" -->
-    <section id="testimonials" class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-gradient">Что говорят наши клиенты</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Отзыв 1 -->
-                <div class="bg-gray-800 rounded-xl shadow-lg p-6">
-                    <p class="text-lg text-gray-300 mb-4 italic">
-                        "Команда Video Pro превзошла все мои ожидания. Видеоролик получился именно таким, каким я его представлял. Очень рекомендую!"
-                    </p>
-                    <div class="flex items-center">
-                        <img src="https://placehold.co/60x60/a78bfa/e2e8f0?text=Имя" alt="Клиент 1" class="w-12 h-12 rounded-full mr-4 border-2 border-purple-400">
-                        <div>
-                            <p class="font-semibold">Иван Петров</p>
-                            <p class="text-sm text-gray-500">Маркетолог</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Отзыв 2 -->
-                <div class="bg-gray-800 rounded-xl shadow-lg p-6">
-                    <p class="text-lg text-gray-300 mb-4 italic">
-                        "Работа выполнена быстро и качественно. Коммуникация была на высшем уровне. Обязательно обращусь снова!"
-                    </p>
-                    <div class="flex items-center">
-                        <img src="https://placehold.co/60x60/818cf8/e2e8f0?text=Имя" alt="Клиент 2" class="w-12 h-12 rounded-full mr-4 border-2 border-indigo-400">
-                        <div>
-                            <p class="font-semibold">Мария Иванова</p>
-                            <p class="text-sm text-gray-500">Блогер</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Отзыв 3 -->
-                <div class="bg-gray-800 rounded-xl shadow-lg p-6">
-                    <p class="text-lg text-gray-300 mb-4 italic">
-                        "Профессиональный подход и внимание к деталям. Результат просто восхитительный! Спасибо за прекрасное видео!"
-                    </p>
-                    <div class="flex items-center">
-                        <img src="https://placehold.co/60x60/a78bfa/e2e8f0?text=Имя" alt="Клиент 3" class="w-12 h-12 rounded-full mr-4 border-2 border-purple-400">
-                        <div>
-                            <p class="font-semibold">Сергей Смирнов</p>
-                            <p class="text-sm text-gray-500">Ивент-менеджер</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Раздел "Контакты" -->
     <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
         <div class="max-w-7xl mx-auto text-center">
@@ -276,7 +228,7 @@
     <!-- Футер -->
     <footer class="bg-gray-800 py-8 px-4 sm:px-6 lg:px-8">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left text-gray-400">
-            <p>&copy; 2025 Video Pro. Все права защищены.</p>
+            <p>&copy; 2024 Video Pro. Все права защищены.</p>
             <div class="mt-4 md:mt-0 space-x-4">
                 <a href="#" class="hover:text-purple-400 transition-colors duration-300"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="hover:text-purple-400 transition-colors duration-300"><i class="fab fa-youtube"></i></a>
@@ -284,6 +236,20 @@
             </div>
         </div>
     </footer>
+
+    <!-- Модальное окно для видео -->
+    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+        <div class="relative w-full max-w-4xl p-4 md:p-8 bg-gray-900 rounded-xl shadow-2xl">
+            <!-- Кнопка закрытия -->
+            <button id="closeModalBtn" class="absolute top-4 right-4 text-white hover:text-gray-400 text-4xl leading-none transition-colors duration-300">&times;</button>
+            <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-white text-center">Промо-ролик для стартапа</h3>
+            <!-- Контейнер видеоплеера -->
+            <div class="relative pb-[56.25%] h-0">
+                <!-- Встроенное видео с RuTube -->
+                <iframe id="videoIframe" class="absolute top-0 left-0 w-full h-full rounded-lg" src="https://rutube.ru/play/embed/17393278?quality=1&autoStart=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 
     <script>
         // JavaScript для мобильного меню
@@ -335,6 +301,34 @@
                 formStatus.style.display = 'block';
             }
         });
+
+        // JavaScript для модального окна
+        const videoModal = document.getElementById('videoModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const portfolioProject1 = document.getElementById('portfolio-project-1');
+        const videoIframe = document.getElementById('videoIframe');
+
+        // Открытие модального окна
+        portfolioProject1.addEventListener('click', () => {
+            videoModal.classList.remove('hidden');
+        });
+
+        // Закрытие модального окна
+        closeModalBtn.addEventListener('click', () => {
+            videoModal.classList.add('hidden');
+            // Остановка видео при закрытии
+            videoIframe.src = videoIframe.src;
+        });
+
+        // Закрытие модального окна при клике вне него
+        window.addEventListener('click', (event) => {
+            if (event.target === videoModal) {
+                videoModal.classList.add('hidden');
+                // Остановка видео при закрытии
+                videoIframe.src = videoIframe.src;
+            }
+        });
+
     </script>
 </body>
 </html>
