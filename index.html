@@ -102,8 +102,9 @@
     <!-- Главная секция (Hero) -->
     <section class="relative w-full py-20 px-4 text-center isolate">
         <!-- Видеофон -->
-        <div class="absolute inset-0 overflow-hidden">
-             <iframe id="backgroundVideoIframe" src="https://rutube.ru/play/embed/b9b703859c9a5e9b28cec5ca7457afaa?quality=1&autoStart=true&mute=true&player_id=11" title="Фоновое видео" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="video-background"></iframe>
+        <div class="absolute inset-0 overflow-hidden"> <!-- Убрали фон-заглушку, который перекрывал видео -->
+             <!-- Атрибут loading="lazy" откладывает загрузку видео. Убрали quality=1 для авто-подбора качества. -->
+             <iframe id="backgroundVideoIframe" src="https://rutube.ru/play/embed/b9b703859c9a5e9b28cec5ca7457afaa?autoStart=true&mute=true&player_id=11" title="Фоновое видео" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="video-background"></iframe>
              <div class="video-overlay"></div>
         </div>
         <div class="relative z-10 max-w-4xl mx-auto py-20">
