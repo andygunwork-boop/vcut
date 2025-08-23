@@ -103,8 +103,8 @@
     <section class="relative w-full py-20 px-4 text-center isolate">
         <!-- Видеофон -->
         <div class="absolute inset-0 overflow-hidden"> <!-- Убрали фон-заглушку, который перекрывал видео -->
-             <!-- Возвращаем фоновое видео -->
-             <iframe id="backgroundVideoIframe" src="https://rutube.ru/play/embed/b9b703859c9a5e9b28cec5ca7457afaa?autoStart=true&mute=true&player_id=11" title="Фоновое видео" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="video-background"></iframe>
+             <!-- src будет добавлен через JS для отложенной загрузки, чтобы не блокировать рендер страницы -->
+             <iframe id="backgroundVideoIframe" data-src="https://rutube.ru/play/embed/b9b703859c9a5e9b28cec5ca7457afaa?autoStart=true&mute=true&player_id=11" title="Фоновое видео" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="video-background"></iframe>
              <div class="video-overlay"></div>
         </div>
         <div class="relative z-10 max-w-4xl mx-auto py-20">
@@ -197,7 +197,7 @@
                 <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-white text-center p-4 bg-gray-900">ПОСЁЛОК</h3>
                 <div class="relative pb-[56.25%] h-0">
                     <!-- Возвращаем прямое встраивание видео "Поселок" -->
-                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?autoStart=true&mute=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?autoStart=true&mute=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -288,6 +288,15 @@
                 }
             });
         }
+
+        // Отложенная загрузка фонового видео после полной загрузки страницы
+        window.addEventListener('load', () => {
+            const bgVideo = document.getElementById('backgroundVideoIframe');
+            if (bgVideo && bgVideo.dataset.src) {
+                // Устанавливаем src, чтобы начать загрузку видео
+                bgVideo.src = bgVideo.dataset.src;
+            }
+        });
 
         // JavaScript для принудительного автозапуска фонового видео
         const backgroundVideoIframe = document.getElementById('backgroundVideoIframe');
