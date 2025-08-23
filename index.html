@@ -196,8 +196,12 @@
             <div id="portfolio-project-1" class="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105 cursor-pointer">
                 <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-white text-center p-4 bg-gray-900">ПОСЁЛОК</h3>
                 <div class="relative pb-[56.25%] h-0">
-                    <!-- Встроенное видео с RuTube -->
-                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?autoStart=true&mute=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    <!-- Facade: Легкий заменитель видео, который загружается мгновенно -->
+                    <div id="portfolio-video-facade" class="absolute top-0 left-0 w-full h-full bg-black flex items-center justify-center cursor-pointer">
+                        <div class="text-white text-6xl opacity-80 hover:opacity-100 transition-opacity">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -331,6 +335,29 @@
                 videoIframe.removeAttribute('src');
             }
         });
+
+        // JavaScript для "фасада" видео в портфолио
+        const videoFacade = document.getElementById('portfolio-video-facade');
+        const videoContainer = videoFacade ? videoFacade.parentElement : null;
+        const portfolioVideoSrc = "https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?autoStart=true&mute=true";
+
+        if (videoFacade && videoContainer) {
+            videoFacade.addEventListener('click', (event) => {
+                event.stopPropagation(); // Останавливаем "всплытие" клика, чтобы не открылось модальное окно
+
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('class', 'absolute top-0 left-0 w-full h-full');
+                iframe.setAttribute('src', portfolioVideoSrc);
+                iframe.setAttribute('title', 'RuTube video player');
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', '');
+
+                // Заменяем "фасад" на настоящий iframe с видео
+                videoContainer.innerHTML = '';
+                videoContainer.appendChild(iframe);
+            });
+        }
 
     </script>
 </body>
