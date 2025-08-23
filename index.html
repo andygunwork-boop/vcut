@@ -196,9 +196,8 @@
             <div id="portfolio-project-1" class="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105 cursor-pointer">
                 <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-white text-center p-4 bg-gray-900">ПОСЁЛОК</h3>
                 <div class="relative pb-[56.25%] h-0">
-                    <!-- ВИДЕО В ПОРТФОЛИО ВРЕМЕННО ОТКЛЮЧЕНО ДЛЯ ТЕСТА -->
-                    <div class="absolute top-0 left-0 w-full h-full bg-gray-700 flex items-center justify-center"><span class="text-gray-500">Видео отключено для теста</span></div>
-                    <!-- <iframe class="absolute top-0 left-0 w-full h-full" src="https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?quality=1&autoStart=true&mute=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                    <!-- Встроенное видео с RuTube -->
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?quality=1&autoStart=true&mute=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -245,8 +244,8 @@
             <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-white text-center">ПОСЁЛОК</h3>
             <!-- Контейнер видеоплеера -->
             <div class="relative pb-[56.25%] h-0">
-                <!-- ВИДЕО В МОДАЛЬНОМ ОКНЕ ВРЕМЕННО ОТКЛЮЧЕНО ДЛЯ ТЕСТА -->
-                <!-- <iframe id="videoIframe" class="absolute top-0 left-0 w-full h-full" src="https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?quality=1&autoStart=true&mute=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                <!-- Встроенное видео с RuTube -->
+                <iframe id="videoIframe" class="absolute top-0 left-0 w-full h-full" src="https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?quality=1&autoStart=true&mute=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -302,11 +301,36 @@
             });
         }
 
-        /*
-        *  ==============================================================
-        *  ЛОГИКА УПРАВЛЕНИЯ ВИДЕО ВРЕМЕННО ОТКЛЮЧЕНА ДЛЯ ТЕСТА СКОРОСТИ
-        *  ==============================================================
-        */
+        // JavaScript для модального окна
+        const videoModal = document.getElementById('videoModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const portfolioProject1 = document.getElementById('portfolio-project-1');
+        const videoIframe = document.getElementById('videoIframe');
+        const originalVideoSrc = videoIframe.src; // Сохраняем исходный URL
+
+        // Открытие модального окна
+        if (portfolioProject1) {
+            portfolioProject1.addEventListener('click', () => {
+                videoIframe.src = originalVideoSrc; // Возвращаем URL для старта видео
+                videoModal.classList.remove('hidden');
+            });
+        }
+
+        // Закрытие модального окна
+        closeModalBtn.addEventListener('click', () => {
+            videoModal.classList.add('hidden');
+            // Остановка видео при закрытии
+            videoIframe.src = '';
+        });
+
+        // Закрытие модального окна при клике вне него
+        window.addEventListener('click', (event) => {
+            if (event.target === videoModal) {
+                videoModal.classList.add('hidden');
+                // Остановка видео при закрытии
+                videoIframe.src = '';
+            }
+        });
 
     </script>
 </body>
