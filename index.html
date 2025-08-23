@@ -197,7 +197,7 @@
                 <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-white text-center p-4 bg-gray-900">ПОСЁЛОК</h3>
                 <div class="relative pb-[56.25%] h-0">
                     <!-- Встроенное видео с RuTube -->
-                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?quality=1&autoStart=true&mute=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?autoStart=true&mute=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -244,8 +244,8 @@
             <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-white text-center">ПОСЁЛОК</h3>
             <!-- Контейнер видеоплеера -->
             <div class="relative pb-[56.25%] h-0">
-                <!-- Встроенное видео с RuTube -->
-                <iframe id="videoIframe" class="absolute top-0 left-0 w-full h-full" src="https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?quality=1&autoStart=true&mute=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- src будет добавляться через JS, чтобы не загружать видео сразу -->
+                <iframe id="videoIframe" class="absolute top-0 left-0 w-full h-full" data-src="https://rutube.ru/play/embed/a1448348342e1cc1d43742f2682b16aa?autoStart=true&mute=true" title="RuTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -306,12 +306,12 @@
         const closeModalBtn = document.getElementById('closeModalBtn');
         const portfolioProject1 = document.getElementById('portfolio-project-1');
         const videoIframe = document.getElementById('videoIframe');
-        const originalVideoSrc = videoIframe.src; // Сохраняем исходный URL
+        const originalVideoSrc = videoIframe.getAttribute('data-src'); // Получаем URL из data-атрибута
 
         // Открытие модального окна
         if (portfolioProject1) {
             portfolioProject1.addEventListener('click', () => {
-                videoIframe.src = originalVideoSrc; // Возвращаем URL для старта видео
+                videoIframe.setAttribute('src', originalVideoSrc); // Устанавливаем URL для старта видео
                 videoModal.classList.remove('hidden');
             });
         }
@@ -320,7 +320,7 @@
         closeModalBtn.addEventListener('click', () => {
             videoModal.classList.add('hidden');
             // Остановка видео при закрытии
-            videoIframe.src = '';
+            videoIframe.removeAttribute('src');
         });
 
         // Закрытие модального окна при клике вне него
@@ -328,7 +328,7 @@
             if (event.target === videoModal) {
                 videoModal.classList.add('hidden');
                 // Остановка видео при закрытии
-                videoIframe.src = '';
+                videoIframe.removeAttribute('src');
             }
         });
 
